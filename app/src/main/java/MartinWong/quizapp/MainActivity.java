@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button mBbutton;
     private Button mCbutton;
     private Button mDbutton;
+    private Button mRestartButton;
 
     private MartinWong.quizapp.Question[] mQuestions;
     private int mIndex;
@@ -66,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mCbutton= (Button) findViewById(R.id.c_button);
         mDbutton= (Button) findViewById(R.id.d_button);
         mCheatButton= (Button) findViewById(R.id.cheat_button);
+        mRestartButton= (Button) findViewById(R.id.Restarting_button);
 
         mTrueFalseContainer=(LinearLayout)findViewById(R.id.true_false_container);
         mFillTheBlankContainer=(LinearLayout)findViewById(R.id.fill_the_blank_container);
@@ -87,6 +90,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mCbutton.setOnClickListener(this);
         mDbutton.setOnClickListener(this);
         mCheatButton.setOnClickListener(this);
+        mRestartButton.setOnClickListener(this);
 
 
         mQuestions= new MartinWong.quizapp.Question[7];
@@ -161,10 +165,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         else if(view.getId()== R.id.next_button)
         {
-            if(mIndex == 6)
+            if(mIndex == 7)
             {
                 Toast myToast = Toast.makeText(this, "You are done!", Toast.LENGTH_SHORT);
                 myToast.show();
+                Intent intent=new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("http://www.javatpoint.com"));
+                startActivity(intent);
             }
             else
             {
@@ -191,42 +198,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast myToast = Toast.makeText(this,mQuestions[mIndex].getmHintTextResId(), Toast.LENGTH_LONG);
             myToast.setGravity(Gravity.TOP| Gravity.CENTER_HORIZONTAL, 0, 0);
             myToast.show();
-//            if(mIndex==0)
-//            {
-//                Toast myToast = Toast.makeText(this, R.string.question_1_hint, Toast.LENGTH_LONG);
-//               
-//                myToast.show();
-//            }
-//            else if(mIndex==1)
-//            {
-//                Toast myToast = Toast.makeText(this, R.string.question_2_hint, Toast.LENGTH_LONG);
-//                myToast.setGravity(Gravity.TOP| Gravity.CENTER_HORIZONTAL, 0, 0);
-//                myToast.show();
-//            }
-//            else if(mIndex==2)
-//            {
-//                Toast myToast = Toast.makeText(this, R.string.question_3_hint, Toast.LENGTH_LONG);
-//                myToast.setGravity(Gravity.TOP| Gravity.CENTER_HORIZONTAL, 0, 0);
-//                myToast.show();
-//            }
-//            else if(mIndex==3)
-//            {
-//                Toast myToast = Toast.makeText(this, R.string.question_4_hint, Toast.LENGTH_LONG);
-//                myToast.setGravity(Gravity.TOP| Gravity.CENTER_HORIZONTAL, 0, 0);
-//                myToast.show();
-//            }
-//            else if(mIndex==4)
-//            {
-//                Toast myToast = Toast.makeText(this, R.string.question_5_hint, Toast.LENGTH_LONG);
-//                myToast.setGravity(Gravity.TOP| Gravity.CENTER_HORIZONTAL, 0, 0);
-//                myToast.show();
-//            }
+//
         }
         else if(view.getId()==R.id.cheat_button)
         {
             Intent cheatIntent= CheatActivity.newIntent(this, mQuestions[mIndex]);
             startActivityForResult(cheatIntent,REQUEST_CODE_CHEAT);
         }
+
     }
 
     public void setupQuestion(){

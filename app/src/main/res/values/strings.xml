@@ -15,6 +15,8 @@
     <string name="question6">How old is Ash?</string>
     <string name="question7">What is froakie\'s evolution?</string>
     <string name="next_button">Next</string>
+    <string name="restart_button">Restart?</string>
+
     <string name="question_1_hint">Good against grass</string>
     <string name="question_2_hint">Good against water.</string>
     <string name="question_3_hint">Good against fire.</string>
@@ -22,7 +24,8 @@
     <string name="question_5_hint">List out the evolutions.</string>
     <string name="questuion_6_hint">Does he age at all?</string>
     <string name="question_7_hint">The evolution slowly turns into a ninja?</string>
-    <string name="score"></string>
+    <string name="score">Score: </string>
+    <string name="Finish">You have completed the quiz!</string>
     <string name="check_button">Check</string>
     <string-array name="question6answers">
         <item>10</item>

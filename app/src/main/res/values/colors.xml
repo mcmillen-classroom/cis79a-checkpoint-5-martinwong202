@@ -8,4 +8,6 @@
     <color name="ButtonColor1">#8ABCD1</color>
     <color name="ButtonColor2">#D18A98</color>
     <color name="ButtonTextColor">#9B0FB3</color>
+    <color name="DefaultColor">#FDEB4F</color>
+    <color name="BlackText">#000000</color>
 </resources>
